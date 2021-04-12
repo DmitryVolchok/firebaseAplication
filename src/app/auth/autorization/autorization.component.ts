@@ -24,7 +24,7 @@ export class AutorizationComponent implements OnInit {
   constructor(
     private afs: AngularFirestore,
     private router: Router,
-    _http: HttpClient,
+    private _http: HttpClient,
     private authGuardService: AuthGuardService
   ) {
     _http.get('/auth/auth.module').subscribe((result) => {
