@@ -1,0 +1,10 @@
+<div class="container_screen" id="container" *ngFor="let item of array">
+  <div class="oneElement">
+    <img
+      src="{{ '../../../assets/images/content_admin/' + item.img }}"
+      alt="img"
+    />
+    <div class="text">{{ item.title }}</div>
+    <div class="text">{{ item.discript }}</div>
+  </div>
+</div>

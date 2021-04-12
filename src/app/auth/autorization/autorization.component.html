@@ -1,0 +1,21 @@
+<div class="openSingIn">
+  <h1>Entrance</h1>
+  <div class="imageContainer">
+    <img src="../../assets/images/header/logo.png" />
+  </div>
+  <form [formGroup]="fullNameControl">
+    <div class="nameField">
+      <input type="text" id="nameField" formControlName="firstName" />
+      <p>Login</p>
+      <p></p>
+    </div>
+    <div class="passField">
+      <input type="text" id="passField" formControlName="passwordValue" />
+      <p>Password</p>
+    </div>
+  </form>
+  <div class="buttonEnter">
+    <input id="buttonGet" type="button" value="Enter" (click)="getInfo()" />
+  </div>
+  <input id="buttonBackSing" type="button" value="X" routerLink="" />
+</div>

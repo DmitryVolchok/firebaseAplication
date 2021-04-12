@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "site-3ef6b": {
+      "hosting": {
+        "newapp": [
+          "site-3ef6b"
+        ]
+      }
+    }
+  }
+}

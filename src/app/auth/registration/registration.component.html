@@ -1,0 +1,28 @@
+<div class="hideAndSeekReg hidden" id="hideAndSeekReg">
+  <h1>Registration</h1>
+  <div class="imageContainer">
+    <img src="../../assets/images/header/logo.png" />
+  </div>
+  <div class="fieldGroup" [formGroup]="fullGroupName">
+    <div class="regField">
+      <input type="text" id="regField" formControlName="regField" />
+      <p>Login</p>
+    </div>
+    <div class="regPassField">
+      <input type="text" id="regPassField" formControlName="regPassField" />
+      <p>Password</p>
+    </div>
+    <div class="regSecondPassField">
+      <input
+        type="text"
+        id="regSecondPassField"
+        formControlName="regSecondPassField"
+      />
+      <p>Confirm Password</p>
+    </div>
+  </div>
+  <div class="buttonEnterReg">
+    <input id="regist" type="button" (click)="getInfo()" value="Enter" />
+  </div>
+  <input id="buttonBackReg" type="button" value="X" routerLink="" />
+</div>

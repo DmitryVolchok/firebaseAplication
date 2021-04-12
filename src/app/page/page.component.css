@@ -1,0 +1,31 @@
+.container_screen {
+  display: inline-flex;
+  margin-left: 20px;
+  position: relative;
+  width: 100%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.container_screen .containter_box {
+  display: inline-block;
+  background-color: rgb(228, 229, 235);
+
+  border-radius: 5%;
+  width: 500px;
+  height: auto;
+  font-size: 30px;
+  box-shadow: 0 0 50px rgb(212, 175, 55);
+  margin: 20px 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
+}
+
+#img img {
+  width: 300px;
+  height: 300px;
+  border-radius: 5%;
+}
+
+.text {
+  color: aliceblue;
+}
