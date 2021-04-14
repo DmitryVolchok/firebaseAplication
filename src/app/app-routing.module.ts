@@ -3,8 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './auth/auth.guard';
 import { NewRegistrationUserComponent } from './new-registration-user/new-registration-user.component';
-import { PageComponent } from './page/page.component';
-import { PageadminComponent } from './page/pageadmin/pageadmin.component';
 
 const routes: Routes = [
   { path: 'mainapp', component: AppComponent },

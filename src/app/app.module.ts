@@ -21,12 +21,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    // PageComponent,
-    // PageadminComponent,
-    NewRegistrationUserComponent,
-  ],
+  declarations: [AppComponent, NewRegistrationUserComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
