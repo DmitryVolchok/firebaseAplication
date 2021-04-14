@@ -5,8 +5,6 @@
   position: absolute;
   top: 100px;
   left: 50%;
-  /* background-color: rgb(189, 169, 169, 0.4); */
-  /* background-color: rgb(116, 185, 255, 0.4); */
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 20px;
 }

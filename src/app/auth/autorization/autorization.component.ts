@@ -13,7 +13,7 @@ import { AuthGuardService } from 'src/app/page/auth-guard.service';
 export class AutorizationComponent implements OnInit {
   public name: string;
   public password: string = '';
-  fullNameControl: FormGroup;
+  public fullNameControl: FormGroup;
   private role: string;
 
   constructor(
@@ -31,7 +31,6 @@ export class AutorizationComponent implements OnInit {
     let userDoc = this.afs.firestore.collection('users');
     console.log(userDoc);
     userDoc.doc();
-
     this.name = this.fullNameControl.get('firstName').value;
     this.password = this.fullNameControl.get('passwordValue').value;
     console.log(userDoc.doc(this.name).get());
