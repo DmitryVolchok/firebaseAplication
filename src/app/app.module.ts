@@ -9,10 +9,7 @@ import { AutorizationComponent } from './auth/autorization/autorization.componen
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PageComponent } from './page/page.component';
-import { PageadminComponent } from './page/pageadmin/pageadmin.component';
 import { NewRegistrationUserComponent } from './new-registration-user/new-registration-user.component';
 import { AuthModule } from './auth/auth.module';
 import { PageModule } from './page/page.module';
