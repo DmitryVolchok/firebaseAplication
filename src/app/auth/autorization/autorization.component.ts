@@ -48,7 +48,6 @@ export class AutorizationComponent implements OnInit {
         if (log.exists && this.password === log.data().password) {
           if (this.name === this.password && this.name === 'admin') {
             this.routeAdmin();
-            // this.routeOk();
           } else {
             this.routeOk();
           }
