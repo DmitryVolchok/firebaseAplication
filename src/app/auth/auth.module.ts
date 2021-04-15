@@ -11,7 +11,9 @@ import { AuthComponent } from './auth.component';
   imports: [CommonModule, AuthRoutingModule, FormsModule, ReactiveFormsModule],
   declarations: [RegistrationComponent, AutorizationComponent, AuthComponent],
   exports: [RegistrationComponent, AutorizationComponent],
-  // providers: [AuthGuard],
+  providers: [
+    // AuthGuard
+  ],
 })
 export class AuthModule {
   isLoggedIn: boolean;

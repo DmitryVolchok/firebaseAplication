@@ -14,6 +14,7 @@ import { PageModule } from './page/page.module';
 import { Checkinterseptor } from './check.interseptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from './auth/auth.guard';
+import { AuthInterceptor } from './auth-interseptor';
 
 @NgModule({
   declarations: [AppComponent, NewRegistrationUserComponent],
@@ -31,6 +32,7 @@ import { AuthGuard } from './auth/auth.guard';
   providers: [
     AuthGuard,
     // { provide: HTTP_INTERCEPTORS, useClass: Checkinterseptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })
