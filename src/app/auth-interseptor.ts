@@ -29,7 +29,7 @@ export class AuthInterceptor implements HttpInterceptor {
         }
         (err) => {
           if (err instanceof HttpErrorResponse) {
-            if (err.status === 200) console.log('error status 2000');
+            if (err.status === 404) console.log('error status 2000');
           }
         };
       }),

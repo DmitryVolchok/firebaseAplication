@@ -5,6 +5,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { AutorizationComponent } from './autorization/autorization.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthComponent } from './auth.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from '../auth-interseptor';
 // import { AuthGuard } from './auth.guard';
 
 @NgModule({
@@ -13,6 +15,7 @@ import { AuthComponent } from './auth.component';
   exports: [RegistrationComponent, AutorizationComponent],
   providers: [
     // AuthGuard
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
 })
 export class AuthModule {
