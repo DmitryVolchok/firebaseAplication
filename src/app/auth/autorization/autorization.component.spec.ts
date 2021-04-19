@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { AutorizationComponent } from './autorization.component';
 
 describe('AutorizationComponent', () => {
@@ -8,9 +7,8 @@ describe('AutorizationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AutorizationComponent ]
-    })
-    .compileComponents();
+      declarations: [AutorizationComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
