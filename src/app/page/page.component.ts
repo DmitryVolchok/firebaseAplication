@@ -26,9 +26,6 @@ export class PageComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.removeItem('isAutintificated');
-    console.log(this.activateRoute.snapshot.paramMap.get('userRole'));
-
-    console.log(typeof this.userRoleValue);
     if (this.userRoleValue === 'admin') {
       this.afs.firestore
         .collection('other1')
