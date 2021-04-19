@@ -20,7 +20,6 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
-    // return localStorage.getItem('isAutintificated') === 'true' ? true : false;
     return this.authGuardService.getAuthStatus;
   }
 
