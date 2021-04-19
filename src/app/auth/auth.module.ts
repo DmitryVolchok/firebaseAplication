@@ -7,14 +7,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthComponent } from './auth.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../auth-interseptor';
-// import { AuthGuard } from './auth.guard';
 
 @NgModule({
   imports: [CommonModule, AuthRoutingModule, FormsModule, ReactiveFormsModule],
   declarations: [RegistrationComponent, AutorizationComponent, AuthComponent],
   exports: [RegistrationComponent, AutorizationComponent],
   providers: [
-    // AuthGuard
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
 })
