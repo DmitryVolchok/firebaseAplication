@@ -12,10 +12,13 @@ export class RegistrationComponent implements OnInit {
   public logField: string;
   public passField: string;
   public passSecField: string;
+  public isValid: boolean;
 
   fullGroupName: FormGroup;
 
-  constructor(private afs: AngularFirestore, private router: Router) {}
+  constructor(private afs: AngularFirestore, private router: Router) {
+    this.isValid = false;
+  }
 
   ngOnInit(): void {
     this.fullGroupName = new FormGroup({
@@ -42,6 +45,7 @@ export class RegistrationComponent implements OnInit {
         .then((log) => {
           if (log.exists) {
             console.log('login exists' + this.logField);
+            this.isValid = true;
           } else {
             otherUserDoc
               .doc(this.logField)
@@ -55,5 +59,9 @@ export class RegistrationComponent implements OnInit {
           }
         });
     }
+  }
+
+  errorColor(): void {
+    document.getElementById('regField').style.backgroundColor = 'red';
   }
 }
