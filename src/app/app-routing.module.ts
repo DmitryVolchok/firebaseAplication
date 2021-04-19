@@ -12,7 +12,6 @@ const routes: Routes = [
       import('../app/page/page.module').then((m) => m.PageModule),
     canActivate: [AuthGuard],
   },
-  // { path: 'pageadmin', component: PageadminComponent },
   { path: 'newusers', component: NewRegistrationUserComponent },
   {
     path: 'auth',
