@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthGuardService } from 'src/app/page/auth-guard.service';
 
@@ -18,7 +23,8 @@ export class AutorizationComponent implements OnInit {
   constructor(
     private afs: AngularFirestore,
     private router: Router,
-    private authGuardService: AuthGuardService
+    private authGuardService: AuthGuardService,
+    private formBulder: FormBuilder
   ) {}
 
   getInfo(): void {
@@ -49,32 +55,48 @@ export class AutorizationComponent implements OnInit {
     this.authGuardService.setAuthSatatus = true;
     this.router.navigateByUrl(`page/admin`);
   }
-  nameControl: FormControl;
-  loginControl: FormControl;
+  // nameControl: FormControl;
+  // loginControl: FormControl;
 
   ngOnInit(): void {
-    this.fullNameControl = new FormGroup({
-      firstName: new FormControl(),
-      passwordValue: new FormControl(),
+    // this.fullNameControl = new FormGroup({
+    //   firstName: new FormControl(),
+    //   passwordValue: new FormControl(),
+    // });
+
+    this.fullNameControl = this.formBulder.group({
+      firstName: [
+        '',
+        Validators.required,
+        Validators.pattern('^[а-яА-ЯёЁa-zA-Z0-9]+$'),
+      ],
+      passwordValue: [
+        '',
+        Validators.required,
+        Validators.pattern('^[а-яА-ЯёЁa-zA-Z0-9]+$'),
+      ],
     });
 
+    this.fullNameControl.valueChanges.subscribe((value) => console.log(value));
+
     this.fullNameControl.get('firstName');
-    //if you need to see value changes .valueChanges.subscribe((value) => console.log(value));
+    //   //if you need to see value changes .valueChanges.subscribe((value) => console.log(value));
 
-    this.fullNameControl.get('passwordValue');
-    //if you need to see value changes .valueChanges.subscribe((value) => console.log(value));
+    //   this.fullNameControl.get('passwordValue');
+    //   //if you need to see value changes .valueChanges.subscribe((value) => console.log(value));
 
-    this.nameControl = new FormControl('new', [
-      Validators.required,
-      Validators.pattern('^[а-яА-ЯёЁa-zA-Z0-9]+$'),
-    ]);
+    //   this.nameControl = new FormControl('new', [
+    //     Validators.required,
+    //     Validators.pattern('^[а-яА-ЯёЁa-zA-Z0-9]+$'),
+    //   ]);
 
-    this.loginControl = new FormControl('name', [
-      Validators.required,
-      Validators.pattern('^[а-яА-ЯёЁa-zA-Z0-9]+$'),
-    ]);
-    this.loginControl.valueChanges.subscribe((value) => console.log(value));
-    this.nameControl.valueChanges.subscribe((value) => console.log(value));
-    this.nameControl.statusChanges.subscribe((status) => console.log(status));
+    //   this.loginControl = new FormControl('name', [
+    //     Validators.required,
+    //     Validators.pattern('^[а-яА-ЯёЁa-zA-Z0-9]+$'),
+    //   ]);
+    //   this.loginControl.valueChanges.subscribe((value) => console.log(value));
+    //   this.nameControl.valueChanges.subscribe((value) => console.log(value));
+    //   this.nameControl.statusChanges.subscribe((status) => console.log(status));
+    // }
   }
 }
