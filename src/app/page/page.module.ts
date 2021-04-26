@@ -8,10 +8,7 @@ import { PageadminComponent } from './pageadmin/pageadmin.component';
 const routes: Routes = [
   {
     path: '',
-    children: [
-      { path: `:userRole`, component: PageComponent },
-      // { path: `:userRole`, component: PageadminComponent },
-    ],
+    children: [{ path: `:userRole`, component: PageComponent }],
   },
 ];
 
