@@ -12,9 +12,10 @@ import { PageModule } from './page/page.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth-interseptor';
+import { TestdevComponent } from './testdev/testdev.component';
 
 @NgModule({
-  declarations: [AppComponent, NewRegistrationUserComponent],
+  declarations: [AppComponent, NewRegistrationUserComponent, TestdevComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
