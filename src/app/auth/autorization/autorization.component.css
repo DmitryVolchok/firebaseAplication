@@ -96,3 +96,7 @@ h1 {
   position: absolute;
   color: rgb(245, 245, 245, 0.8);
 }
+
+.invalidInput {
+  border-color: red;
+}

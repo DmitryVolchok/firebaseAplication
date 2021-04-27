@@ -5,17 +5,48 @@
   </div>
   <form [formGroup]="fullNameControl">
     <div class="nameField">
-      <input type="text" id="nameField" formControlName="firstName" />
+      <input
+        type="text"
+        id="nameField"
+        formControlName="firstName"
+        [ngClass]="{ invalidInput: fullNameControl.controls.firstName.invalid }"
+      />
       <p>Login</p>
-      <p></p>
+      <div *ngIf="fullNameControl.controls.firstName.invalid"></div>
     </div>
     <div class="passField">
-      <input type="text" id="passField" formControlName="passwordValue" />
+      <input
+        type="text"
+        id="passField"
+        formControlName="passwordValue"
+        [ngClass]="{
+          invalidInput: fullNameControl.controls.passwordValue.invalid
+        }"
+      />
       <p>Password</p>
+      <div *ngIf="fullNameControl.controls.passwordValue.invalid"></div>
     </div>
   </form>
   <div class="buttonEnter">
-    <input id="buttonGet" type="button" value="Enter" (click)="getInfo()" />
+    <button id="buttonGet" (click)="getInfo()" (click)="checkValueError = true">
+      Enter
+    </button>
+    <!-- <div
+      *ngIf="
+        checkValueError ||
+        fullNameControl.controls.firstName.invalid ||
+        fullNameControl.controls.passwordValue.invalid
+      "</div>
+    > -->
+    <div *ngIf="checkValueError && fullNameControl.controls.firstName.invalid">
+      <p>Enter login format a-z0-9</p>
+    </div>
+    <div
+      *ngIf="checkValueError && fullNameControl.controls.passwordValue.invalid"
+    >
+      <p>Enter pasword format a-z0-9</p>
+    </div>
   </div>
+
   <input id="buttonBackSing" type="button" value="X" routerLink="" />
 </div>

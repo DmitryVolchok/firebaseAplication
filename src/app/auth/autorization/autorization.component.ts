@@ -18,6 +18,7 @@ export class AutorizationComponent implements OnInit {
   public name: string;
   public password: string = '';
   public fullNameControl: FormGroup;
+  public checkValueError: boolean = false;
   private role: string;
 
   constructor(
@@ -25,7 +26,22 @@ export class AutorizationComponent implements OnInit {
     private router: Router,
     private authGuardService: AuthGuardService,
     private formBulder: FormBuilder
-  ) {}
+  ) {
+    this.fullNameControl = this.formBulder.group({
+      firstName: [
+        '',
+        [Validators.required, Validators.pattern('^[a-zA-Z0-9]+$')],
+      ],
+      passwordValue: [
+        '',
+        [Validators.required, Validators.pattern('^[a-zA-Z0-9]+$')],
+      ],
+    });
+
+    // this.fullNameControl.valueChanges.subscribe((value) => console.log(value));
+
+    // this.fullNameControl.get('firstName');
+  }
 
   getInfo(): void {
     let userDoc = this.afs.firestore.collection('users');
@@ -58,38 +74,22 @@ export class AutorizationComponent implements OnInit {
   // nameControl: FormControl;
   // loginControl: FormControl;
 
+  QQQ() {
+    console.log(this.fullNameControl.controls.firstName.invalid);
+  }
+
   ngOnInit(): void {
     // this.fullNameControl = new FormGroup({
     //   firstName: new FormControl(),
     //   passwordValue: new FormControl(),
     // });
-
-    this.fullNameControl = this.formBulder.group({
-      firstName: [
-        '',
-        Validators.required,
-        Validators.pattern('^[а-яА-ЯёЁa-zA-Z0-9]+$'),
-      ],
-      passwordValue: [
-        '',
-        Validators.required,
-        Validators.pattern('^[а-яА-ЯёЁa-zA-Z0-9]+$'),
-      ],
-    });
-
-    this.fullNameControl.valueChanges.subscribe((value) => console.log(value));
-
-    this.fullNameControl.get('firstName');
     //   //if you need to see value changes .valueChanges.subscribe((value) => console.log(value));
-
     //   this.fullNameControl.get('passwordValue');
     //   //if you need to see value changes .valueChanges.subscribe((value) => console.log(value));
-
     //   this.nameControl = new FormControl('new', [
     //     Validators.required,
     //     Validators.pattern('^[а-яА-ЯёЁa-zA-Z0-9]+$'),
     //   ]);
-
     //   this.loginControl = new FormControl('name', [
     //     Validators.required,
     //     Validators.pattern('^[а-яА-ЯёЁa-zA-Z0-9]+$'),
