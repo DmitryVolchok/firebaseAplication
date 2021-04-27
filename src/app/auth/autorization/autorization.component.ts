@@ -18,6 +18,7 @@ export class AutorizationComponent implements OnInit {
   public name: string;
   public password: string = '';
   public fullNameControl: FormGroup;
+  public checkValueError: boolean = false;
   private role: string;
 
   constructor(
@@ -74,7 +75,7 @@ export class AutorizationComponent implements OnInit {
   // loginControl: FormControl;
 
   QQQ() {
-    console.log(this.fullNameControl);
+    console.log(this.fullNameControl.controls.firstName.invalid);
   }
 
   ngOnInit(): void {

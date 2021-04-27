@@ -9,7 +9,6 @@
         type="text"
         id="nameField"
         formControlName="firstName"
-        (ngModelChange)="QQQ()"
         [ngClass]="{ invalidInput: fullNameControl.controls.firstName.invalid }"
       />
       <p>Login</p>
@@ -31,7 +30,30 @@
     </div>
   </form>
   <div class="buttonEnter">
-    <input id="buttonGet" type="button" value="Enter" (click)="getInfo()" />
+    <!-- <input
+      id="buttonGet"
+      type="button"
+      value="Enter"
+      (click)="getInfo()"
+      (ngModelChange)="QQQ()"
+      *ngIf="
+        fullNameControl.controls.firstName.invalid &&
+        fullNameControl.controls.passwordValue.invalid
+      "
+    /> -->
+
+    <button id="buttonGet" (click)="getInfo()" (click)="checkValueError = true">
+      Enter
+      <div
+        *ngIf="
+          checkValueError === fullNameControl.controls.firstName.invalid ||
+          fullNameControl.controls.passwordValue.invalid
+        "
+      >
+        <p>Invalid Value</p>
+      </div>
+    </button>
   </div>
+
   <input id="buttonBackSing" type="button" value="X" routerLink="" />
 </div>
