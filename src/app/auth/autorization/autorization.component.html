@@ -5,13 +5,29 @@
   </div>
   <form [formGroup]="fullNameControl">
     <div class="nameField">
-      <input type="text" id="nameField" formControlName="firstName" />
+      <input
+        type="text"
+        id="nameField"
+        formControlName="firstName"
+        (ngModelChange)="QQQ()"
+        [ngClass]="{ invalidInput: fullNameControl.controls.firstName.invalid }"
+      />
       <p>Login</p>
-      <p></p>
+      <div *ngIf="fullNameControl.controls.firstName.invalid">
+        qqqqqqqqqqqqqqqqqqqqq
+      </div>
     </div>
     <div class="passField">
-      <input type="text" id="passField" formControlName="passwordValue" />
+      <input
+        type="text"
+        id="passField"
+        formControlName="passwordValue"
+        [ngClass]="{
+          invalidInput: fullNameControl.controls.passwordValue.invalid
+        }"
+      />
       <p>Password</p>
+      <div *ngIf="fullNameControl.controls.passwordValue.invalid"></div>
     </div>
   </form>
   <div class="buttonEnter">
