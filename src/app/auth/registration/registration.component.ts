@@ -38,7 +38,7 @@ export class RegistrationComponent implements OnInit {
     this.passSecField = this.fullGroupName.get('regSecondPassField').value;
     const userDoc = this.afs.firestore.collection('users');
     const otherUserDoc = this.afs.firestore.collection('users1');
-    if (this.passField === this.passSecField && this.passField != '') {
+    if (this.passField === this.passSecField && this.passField !== '') {
       userDoc
         .doc(this.logField)
         .get()

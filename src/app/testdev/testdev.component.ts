@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestdevComponent implements OnInit {
   public name: string = 'hello world';
+  public wow: string = 'git works';
   constructor() {}
 
   ngOnInit(): void {}
