@@ -28,18 +28,6 @@
     </div>
   </form>
   <div class="buttonEnter">
-    <!-- <input
-      id="buttonGet"
-      type="button"
-      value="Enter"
-      (click)="getInfo()"
-      (ngModelChange)="QQQ()"
-      *ngIf="
-        fullNameControl.controls.firstName.invalid &&
-        fullNameControl.controls.passwordValue.invalid
-      "
-    /> -->
-
     <button id="buttonGet" (click)="getInfo()" (click)="checkValueError = true">
       Enter
     </button>
@@ -56,7 +44,7 @@
     <div
       *ngIf="checkValueError && fullNameControl.controls.passwordValue.invalid"
     >
-      <p>Enter passsssssswwwwword format a-z0-9</p>
+      <p>Enter pasword format a-z0-9</p>
     </div>
   </div>
 
