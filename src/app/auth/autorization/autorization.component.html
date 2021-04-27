@@ -50,11 +50,11 @@
         fullNameControl.controls.passwordValue.invalid
       "</div>
     > -->
-    <div *ngIf="checkValueError === fullNameControl.controls.firstName.invalid">
+    <div *ngIf="checkValueError && fullNameControl.controls.firstName.invalid">
       <p>Enter login format a-z0-9</p>
     </div>
     <div
-      *ngIf="checkValueError === fullNameControl.controls.passwordValue.invalid"
+      *ngIf="checkValueError && fullNameControl.controls.passwordValue.invalid"
     >
       <p>Enter passsssssswwwwword format a-z0-9</p>
     </div>
