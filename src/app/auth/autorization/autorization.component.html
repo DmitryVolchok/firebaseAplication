@@ -12,9 +12,7 @@
         [ngClass]="{ invalidInput: fullNameControl.controls.firstName.invalid }"
       />
       <p>Login</p>
-      <div *ngIf="fullNameControl.controls.firstName.invalid">
-        qqqqqqqqqqqqqqqqqqqqq
-      </div>
+      <div *ngIf="fullNameControl.controls.firstName.invalid"></div>
     </div>
     <div class="passField">
       <input
@@ -44,15 +42,22 @@
 
     <button id="buttonGet" (click)="getInfo()" (click)="checkValueError = true">
       Enter
-      <div
-        *ngIf="
-          checkValueError === fullNameControl.controls.firstName.invalid ||
-          fullNameControl.controls.passwordValue.invalid
-        "
-      >
-        <p>Invalid Value</p>
-      </div>
     </button>
+    <!-- <div
+      *ngIf="
+        checkValueError ||
+        fullNameControl.controls.firstName.invalid ||
+        fullNameControl.controls.passwordValue.invalid
+      "</div>
+    > -->
+    <div *ngIf="checkValueError === fullNameControl.controls.firstName.invalid">
+      <p>Enter login format a-z0-9</p>
+    </div>
+    <div
+      *ngIf="checkValueError === fullNameControl.controls.passwordValue.invalid"
+    >
+      <p>Enter passsssssswwwwword format a-z0-9</p>
+    </div>
   </div>
 
   <input id="buttonBackSing" type="button" value="X" routerLink="" />
