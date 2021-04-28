@@ -9,25 +9,48 @@
         type="text"
         id="regField"
         formControlName="regField"
-        [ngClass]="{ 'is-Valid': isValid }"
+        [ngClass]="{ invalidInput: fullGroupName.controls.regField.invalid }"
       />
       <p>Login</p>
+      <div *ngIf="fullGroupName.controls.regField.invalid"></div>
     </div>
     <div class="regPassField">
-      <input type="text" id="regPassField" formControlName="regPassField" />
+      <input
+        type="password"
+        id="regPassField"
+        formControlName="regPassField"
+        [ngClass]="{
+          invalidInput: fullGroupName.controls.regPassField.invalid
+        }"
+      />
       <p>Password</p>
     </div>
     <div class="regSecondPassField">
       <input
-        type="text"
+        type="password"
         id="regSecondPassField"
         formControlName="regSecondPassField"
+        [ngClass]="{
+          invalidInput: fullGroupName.controls.regSecondPassField.invalid
+        }"
       />
       <p>Confirm Password</p>
     </div>
   </div>
   <div class="buttonEnterReg">
-    <input id="regist" type="button" (click)="getInfo()" value="Enter" />
+    <button id="regist" (click)="getInfo()" (click)="isValid = true">
+      Enter
+    </button>
+    <!-- <input  type="button"  value="Enter" /> -->
+  </div>
+  <div *ngIf="fullGroupName.controls.regField.invalid && isValid">
+    <p>Enter login a-zA-Z0-9</p>
+  </div>
+  <div *ngIf="fullGroupName.controls.regPassField.invalid && isValid">
+    <p>Enter password format a-zA-Z0-9</p>
+  </div>
+  <div *ngIf="fullGroupName.controls.regSecondPassField.invalid && isValid">
+    <p>Enter password format a-zA-Z0-9</p>
   </div>
   <input id="buttonBackReg" type="button" value="X" routerLink="" />
 </div>
