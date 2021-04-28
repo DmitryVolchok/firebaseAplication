@@ -104,6 +104,6 @@ h1 {
   color: rgb(245, 245, 245, 0.8);
 }
 
-.is-Valid {
-  background-color: red;
+.invalidInput {
+  border-color: red;
 }

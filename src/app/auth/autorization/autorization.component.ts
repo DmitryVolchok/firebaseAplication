@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthGuardService } from 'src/app/page/auth-guard.service';
 
@@ -37,10 +32,6 @@ export class AutorizationComponent implements OnInit {
         [Validators.required, Validators.pattern('^[a-zA-Z0-9]+$')],
       ],
     });
-
-    // this.fullNameControl.valueChanges.subscribe((value) => console.log(value));
-
-    // this.fullNameControl.get('firstName');
   }
 
   getInfo(): void {
@@ -71,32 +62,10 @@ export class AutorizationComponent implements OnInit {
     this.authGuardService.setAuthSatatus = true;
     this.router.navigateByUrl(`page/admin`);
   }
-  // nameControl: FormControl;
-  // loginControl: FormControl;
 
   QQQ() {
     console.log(this.fullNameControl.controls.firstName.invalid);
   }
 
-  ngOnInit(): void {
-    // this.fullNameControl = new FormGroup({
-    //   firstName: new FormControl(),
-    //   passwordValue: new FormControl(),
-    // });
-    //   //if you need to see value changes .valueChanges.subscribe((value) => console.log(value));
-    //   this.fullNameControl.get('passwordValue');
-    //   //if you need to see value changes .valueChanges.subscribe((value) => console.log(value));
-    //   this.nameControl = new FormControl('new', [
-    //     Validators.required,
-    //     Validators.pattern('^[а-яА-ЯёЁa-zA-Z0-9]+$'),
-    //   ]);
-    //   this.loginControl = new FormControl('name', [
-    //     Validators.required,
-    //     Validators.pattern('^[а-яА-ЯёЁa-zA-Z0-9]+$'),
-    //   ]);
-    //   this.loginControl.valueChanges.subscribe((value) => console.log(value));
-    //   this.nameControl.valueChanges.subscribe((value) => console.log(value));
-    //   this.nameControl.statusChanges.subscribe((status) => console.log(status));
-    // }
-  }
+  ngOnInit(): void {}
 }
