@@ -35,6 +35,7 @@ export class AutorizationComponent implements OnInit {
   }
 
   getInfo(): void {
+    this.checkValueError = true;
     let userDoc = this.afs.firestore.collection('users');
     userDoc.doc();
     this.name = this.fullNameControl.get('firstName').value;
@@ -62,10 +63,8 @@ export class AutorizationComponent implements OnInit {
     this.authGuardService.setAuthSatatus = true;
     this.router.navigateByUrl(`page/admin`);
   }
-
-  QQQ() {
-    console.log(this.fullNameControl.controls.firstName.invalid);
+  qqqq() {
+    console.log(this.fullNameControl.controls.firstName.errors.required);
   }
-
   ngOnInit(): void {}
 }
