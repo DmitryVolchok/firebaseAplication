@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,38 +13,43 @@ export class RegistrationComponent implements OnInit {
   public passField: string;
   public passSecField: string;
   public isValid: boolean = false;
-
-  fullGroupName: FormGroup;
-
+  public isValidRequred: boolean;
+  public fullGroupName: FormGroup;
   constructor(
     private afs: AngularFirestore,
     private router: Router,
     private formBuilder: FormBuilder
   ) {
-    this.fullGroupName = this.formBuilder.group({
-      regField: [
-        '',
-        [Validators.required, Validators.pattern('^[a-zA-Z0-9]+$')],
-      ],
-      regPassField: [
-        '',
-        [Validators.required, Validators.pattern('^[a-zA-Z0-9]+$')],
-      ],
-      regSecondPassField: [
-        '',
-        [Validators.required, Validators.pattern('^[a-zA-Z0-8]+$')],
-      ],
-    });
-    this.isValid = false;
+    this.fullGroupName = this.formBuilder.group(
+      {
+        regField: [
+          '',
+          [Validators.required, Validators.pattern('^[a-zA-Z0-9]+$')],
+        ],
+        regPassField: [
+          '',
+          [Validators.required, Validators.pattern('^[a-zA-Z0-9]+$')],
+        ],
+        regSecondPassField: [
+          '',
+          [Validators.required, Validators.pattern('^[a-zA-Z0-9]+$')],
+        ],
+      },
+      {
+        validator: (form) => {
+          if (form.value.regPassField === form.value.regSecondPassField) {
+            return null;
+          } else {
+            return {
+              err: true,
+            };
+          }
+        },
+      }
+    );
   }
 
-  ngOnInit(): void {
-    // this.fullGroupName = new FormGroup({
-    //   regField: new FormControl(),
-    //   regPassField: new FormControl(),
-    //   regSecondPassField: new FormControl(),
-    // });
-  }
+  ngOnInit(): void {}
 
   newUser(): void {
     this.router.navigateByUrl('newusers');
@@ -82,9 +82,5 @@ export class RegistrationComponent implements OnInit {
           }
         });
     }
-  }
-
-  errorColor(): void {
-    document.getElementById('regField').style.backgroundColor = 'red';
   }
 }

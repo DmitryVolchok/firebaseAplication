@@ -28,24 +28,40 @@
     </div>
   </form>
   <div class="buttonEnter">
-    <button id="buttonGet" (click)="getInfo()" (click)="checkValueError = true">
-      Enter
-    </button>
-    <!-- <div
+    <button id="buttonGet" (click)="getInfo()">Enter</button>
+    <p
+      class="whiteFont"
+      checkValueError="false"
       *ngIf="
-        checkValueError ||
-        fullNameControl.controls.firstName.invalid ||
-        fullNameControl.controls.passwordValue.invalid
-      "</div>
-    > -->
-    <div *ngIf="checkValueError && fullNameControl.controls.firstName.invalid">
-      <p>Enter login format a-z0-9</p>
-    </div>
-    <div
-      *ngIf="checkValueError && fullNameControl.controls.passwordValue.invalid"
+        checkValueError &&
+        fullNameControl.controls.firstName.errors?.required !== 'null'
+      "
     >
-      <p>Enter pasword format a-z0-9</p>
-    </div>
+      login is required
+    </p>
+    <p
+      class="whiteFont"
+      checkValueError="false"
+      *ngIf="
+        checkValueError &&
+        fullNameControl.controls.passwordValue.errors?.required !== 'null'
+      "
+    >
+      password is required
+    </p>
+    <p
+      class="whiteFont"
+      *ngIf="checkValueError && fullNameControl.controls.firstName?.invalid"
+    >
+      Enter login format a-z0-9
+    </p>
+
+    <p
+      class="whiteFont"
+      *ngIf="checkValueError && fullNameControl.controls.passwordValue?.invalid"
+    >
+      Enter pasword format a-z0-9
+    </p>
   </div>
 
   <input id="buttonBackSing" type="button" value="X" routerLink="" />
