@@ -14,7 +14,6 @@ export class AutorizationComponent implements OnInit {
   public password: string = '';
   public fullNameControl: FormGroup;
   public checkValueError: boolean = false;
-  private role: string;
 
   constructor(
     private afs: AngularFirestore,
@@ -63,8 +62,6 @@ export class AutorizationComponent implements OnInit {
     this.authGuardService.setAuthSatatus = true;
     this.router.navigateByUrl(`page/admin`);
   }
-  qqqq() {
-    console.log(this.fullNameControl.controls.firstName.errors.required);
-  }
+
   ngOnInit(): void {}
 }
