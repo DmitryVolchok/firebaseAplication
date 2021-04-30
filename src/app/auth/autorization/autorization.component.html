@@ -12,7 +12,6 @@
         [ngClass]="{ invalidInput: fullNameControl.controls.firstName.invalid }"
       />
       <p>Login</p>
-      <div *ngIf="fullNameControl.controls.firstName.invalid"></div>
     </div>
     <div class="passField">
       <input
@@ -24,44 +23,39 @@
         }"
       />
       <p>Password</p>
-      <div *ngIf="fullNameControl.controls.passwordValue.invalid"></div>
     </div>
   </form>
   <div class="buttonEnter">
     <button id="buttonGet" (click)="getInfo()">Enter</button>
-    <p
-      class="whiteFont"
-      checkValueError="false"
-      *ngIf="
-        checkValueError &&
-        fullNameControl.controls.firstName.errors?.required !== 'null'
-      "
-    >
-      login is required
-    </p>
-    <p
-      class="whiteFont"
-      checkValueError="false"
-      *ngIf="
-        checkValueError &&
-        fullNameControl.controls.passwordValue.errors?.required !== 'null'
-      "
-    >
-      password is required
-    </p>
-    <p
-      class="whiteFont"
-      *ngIf="checkValueError && fullNameControl.controls.firstName?.invalid"
-    >
-      Enter login format a-z0-9
-    </p>
-
-    <p
-      class="whiteFont"
+    <div *ngIf="checkValueError && fullNameControl.controls.firstName?.invalid">
+      <p class="whiteFont" *ngIf="fullNameControl.controls.firstName?.invalid">
+        Enter login format a-z0-9
+      </p>
+      <p
+        class="whiteFont"
+        *ngIf="fullNameControl.controls.firstName.errors?.required !== 'null'"
+      >
+        Login is required
+      </p>
+    </div>
+    <div
       *ngIf="checkValueError && fullNameControl.controls.passwordValue?.invalid"
     >
-      Enter pasword format a-z0-9
-    </p>
+      <p
+        class="whiteFont"
+        *ngIf="fullNameControl.controls.passwordValue?.invalid"
+      >
+        Enter password format a-z0-9
+      </p>
+      <p
+        class="whiteFont"
+        *ngIf="
+          fullNameControl.controls.passwordValue.errors?.required !== 'null'
+        "
+      >
+        Password is required
+      </p>
+    </div>
   </div>
 
   <input id="buttonBackSing" type="button" value="X" routerLink="" />
