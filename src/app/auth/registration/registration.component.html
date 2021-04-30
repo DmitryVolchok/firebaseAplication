@@ -9,7 +9,9 @@
         type="text"
         id="regField"
         formControlName="regField"
-        [ngClass]="{ invalidInput: fullGroupName.controls.regField.invalid }"
+        [ngClass]="{
+          invalidInput: fullGroupName.controls.regField.invalid && isValid
+        }"
       />
       <p>Login</p>
       <div *ngIf="fullGroupName.controls.regField.invalid"></div>
@@ -20,7 +22,7 @@
         id="regPassField"
         formControlName="regPassField"
         [ngClass]="{
-          invalidInput: fullGroupName.controls.regPassField.invalid
+          invalidInput: fullGroupName.controls.regPassField.invalid && isValid
         }"
       />
       <p>Password</p>
@@ -31,25 +33,36 @@
         id="regSecondPassField"
         formControlName="regSecondPassField"
         [ngClass]="{
-          invalidInput: fullGroupName.controls.regSecondPassField.invalid
+          invalidInput:
+            fullGroupName.controls.regSecondPassField.invalid && isValid
         }"
       />
       <p>Confirm Password</p>
     </div>
   </div>
   <div class="buttonEnterReg">
-    <button id="regist" (click)="getInfo()" (click)="isValid = true">
-      Enter
-    </button>
+    <button id="regist" (click)="getInfo()">Enter</button>
   </div>
-  <div *ngIf="fullGroupName.controls.regField.invalid && isValid">
-    <p>Enter login a-zA-Z0-9</p>
+  <div
+    class="errorExpression"
+    *ngIf="isValid && fullGroupName.controls.regField.errors as erorr"
+  >
+    <p *ngif="erorr.pattern">Enter login a-zA-Z0-9</p>
+    <p *ngIf="erorr.required">Login is required</p>
   </div>
-  <div *ngIf="fullGroupName.controls.regPassField.invalid && isValid">
-    <p>Enter password format a-zA-Z0-9</p>
+  <div
+    class="errorExpression"
+    *ngIf="isValid && fullGroupName.controls.regPassField.errors as erorr"
+  >
+    <p *ngif="erorr.pattern">Enter password format a-zA-Z0-9</p>
+    <p *ngIf="erorr.required">Password is required</p>
   </div>
-  <div *ngIf="fullGroupName.controls.regSecondPassField.invalid && isValid">
-    <p>Enter password format a-zA-Z0-9</p>
+  <div
+    class="errorExpression"
+    *ngIf="isValid && fullGroupName.controls.regSecondPassField.errors as erorr"
+  >
+    <p *ngif="erorr.pattern">Enter password format a-zA-Z0-9</p>
+    <p *ngIf="erorr.required">Password is required</p>
   </div>
   <input id="buttonBackReg" type="button" value="X" routerLink="" />
 </div>
