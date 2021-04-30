@@ -3,20 +3,24 @@ img {
 }
 
 header {
+  display: flex;
+  flex-direction: row;
   background-color: rgba(0, 0, 0, 0.4);
   height: 80px;
   flex-basis: 100%;
-  display: flex;
   position: relative;
   border-radius: 20px;
   flex-wrap: wrap;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .buttons {
   position: absolute;
+  display: flex;
   top: 30px;
   right: 40px;
+  overflow: hidden;
 }
 
 .buttons button {
@@ -27,23 +31,28 @@ header {
 
 .container_header img {
   position: absolute;
+  display: flex;
   width: auto;
   height: 150px;
   top: -30px;
+  overflow: hidden;
 }
 
 .nameSite {
   font-size: 60px;
   position: absolute;
+  display: flex;
   left: 40%;
   color: whitesmoke;
 }
 
 .infoPage h1 {
   position: absolute;
+  display: flex;
   top: 300px;
   left: 20px;
   color: whitesmoke;
+  overflow: hidden;
 }
 
 footer {
