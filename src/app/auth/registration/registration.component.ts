@@ -56,6 +56,7 @@ export class RegistrationComponent implements OnInit {
   }
 
   getInfo(): void {
+    this.isValid = true;
     this.logField = this.fullGroupName.get('regField').value;
     this.passField = this.fullGroupName.get('regPassField').value;
     this.passSecField = this.fullGroupName.get('regSecondPassField').value;

@@ -107,3 +107,7 @@ h1 {
 .invalidInput {
   border-color: red;
 }
+
+.errorExpression {
+  color: white;
+}
