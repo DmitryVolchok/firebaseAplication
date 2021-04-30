@@ -9,7 +9,10 @@
         type="text"
         id="nameField"
         formControlName="firstName"
-        [ngClass]="{ invalidInput: fullNameControl.controls.firstName.invalid }"
+        [ngClass]="{
+          invalidInput:
+            fullNameControl.controls.firstName.invalid && checkValueError
+        }"
       />
       <p>Login</p>
     </div>
@@ -19,7 +22,8 @@
         id="passField"
         formControlName="passwordValue"
         [ngClass]="{
-          invalidInput: fullNameControl.controls.passwordValue.invalid
+          invalidInput:
+            fullNameControl.controls.passwordValue.invalid && checkValueError
         }"
       />
       <p>Password</p>
@@ -27,34 +31,24 @@
   </form>
   <div class="buttonEnter">
     <button id="buttonGet" (click)="getInfo()">Enter</button>
-    <div *ngIf="checkValueError && fullNameControl.controls.firstName?.invalid">
-      <p class="whiteFont" *ngIf="fullNameControl.controls.firstName?.invalid">
-        Enter login format a-z0-9
-      </p>
-      <p
-        class="whiteFont"
-        *ngIf="fullNameControl.controls.firstName.errors?.required !== 'null'"
-      >
-        Login is required
-      </p>
+    <div
+      class="whiteFont"
+      *ngIf="
+        checkValueError && fullNameControl.controls.firstName.errors as eroors
+      "
+    >
+      <p *ngIf="eroors.pattern">Enter login format a-z0-9</p>
+      <p *ngIf="eroors.required">Login is required</p>
     </div>
     <div
-      *ngIf="checkValueError && fullNameControl.controls.passwordValue?.invalid"
+      class="whiteFont"
+      *ngIf="
+        checkValueError &&
+        fullNameControl.controls.passwordValue.errors as errors
+      "
     >
-      <p
-        class="whiteFont"
-        *ngIf="fullNameControl.controls.passwordValue?.invalid"
-      >
-        Enter password format a-z0-9
-      </p>
-      <p
-        class="whiteFont"
-        *ngIf="
-          fullNameControl.controls.passwordValue.errors?.required !== 'null'
-        "
-      >
-        Password is required
-      </p>
+      <p *ngIf="errors.pattern">Enter password format a-z0-9</p>
+      <p *ngIf="errors.required">Password is required</p>
     </div>
   </div>
 
