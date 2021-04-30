@@ -64,5 +64,8 @@
     <p *ngif="erorr.pattern">Enter password format a-zA-Z0-9</p>
     <p *ngIf="erorr.required">Password is required</p>
   </div>
+  <div class="errorExpression" *ngIf="isValid && fullGroupName.errors !== null">
+    Enter same passwords
+  </div>
   <input id="buttonBackReg" type="button" value="X" routerLink="" />
 </div>
