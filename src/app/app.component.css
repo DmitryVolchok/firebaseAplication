@@ -1,5 +1,6 @@
 img {
   position: absolute;
+  overflow: hidden;
 }
 
 header {
@@ -7,6 +8,7 @@ header {
   flex-direction: row;
   background-color: rgba(0, 0, 0, 0.4);
   height: 80px;
+  width: 100%;
   flex-basis: 100%;
   position: relative;
   border-radius: 20px;
@@ -32,6 +34,7 @@ header {
 .container_header img {
   position: absolute;
   display: flex;
+  /* position: absolute; */
   width: auto;
   height: 150px;
   top: -30px;

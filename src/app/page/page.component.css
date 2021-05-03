@@ -1,4 +1,4 @@
-.container_screen {
+/* .container_screen {
   display: inline-flex;
   margin-left: 20px;
   position: relative;
@@ -28,4 +28,18 @@
 
 .text {
   color: aliceblue;
+} */
+
+.all_containers {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.container_screen {
+  /* position: relative; */
+  margin-left: 20px;
+  /* display: flex; */
+
+  justify-content: center;
 }
