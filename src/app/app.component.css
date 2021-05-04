@@ -1,20 +1,27 @@
-img {
-  position: absolute;
-  overflow: hidden;
-}
-
 header {
+  /* background-image: (url(../assets/images/backMain.jpg)); */
   display: flex;
   flex-direction: row;
   background-color: rgba(0, 0, 0, 0.4);
   height: 80px;
   width: 100%;
   flex-basis: 100%;
-  position: relative;
+  position: absolute;
   border-radius: 20px;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
+}
+.backImage {
+  background-image: url(../assets/images/backMain.jpg);
+  height: 1000px;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  /* overflow: hidden; */
 }
 
 .buttons {
@@ -47,6 +54,12 @@ header {
   display: flex;
   left: 40%;
   color: whitesmoke;
+}
+
+.infoPage {
+  background-image: url(../assets/images/backMain.jpg);
+  width: 100%;
+  height: 100%;
 }
 
 .infoPage h1 {
