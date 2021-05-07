@@ -6,20 +6,19 @@ header {
   height: 80px;
   width: 100%;
   flex-basis: 100%;
-  position: absolute;
+  /* position: absolute; */
   border-radius: 20px;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
 }
 .backImage {
-  background-image: url(../assets/images/backMain.jpg);
-  height: 1000px;
-  width: 100%;
-  overflow: hidden;
-  position: absolute;
-  top: 0px;
-  left: 0px;
+  background-image: url(../assets/images/backMain.jpg) no-repeat;
+  height: 1200px;
+  margin-top: -80px;
+  display: flex;
+  /* overflow: hidden; */
+  /* position: relative; */
 
   /* overflow: hidden; */
 }

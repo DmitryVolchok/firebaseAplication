@@ -33,13 +33,19 @@
 .all_containers {
   display: flex;
   flex-direction: row;
-  overflow: hidden;
+  /* width: 1000px; */
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  flex-grow: 2;
+  /* overflow: hidden; */
 }
 
 .container_screen {
   /* position: relative; */
   margin-left: 20px;
-  /* display: flex; */
 
+  /* display: flex; */
+  align-items: stretch;
   justify-content: center;
 }
